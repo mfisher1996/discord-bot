@@ -3,6 +3,7 @@ use win_boiler_attr::start_now;
 mod bot;
 mod service;
 mod settings;
+mod commands;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()>{
