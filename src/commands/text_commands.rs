@@ -14,6 +14,7 @@ async fn homework(ctx: &Context, msg: &Message) -> CommandResult {
     let channel = msg.channel_id;
     channel.say(&ctx.http, "What would you like my help with?").await?;
     let mut msgs = Box::pin(channel.messages_iter(&ctx.http));
+    //msgs.filter_map(Result::ok);
     match msgs.next().await {
         Some(Ok(m)) => {
             let content = m.content;

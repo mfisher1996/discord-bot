@@ -22,7 +22,7 @@ pub struct Settings {
 impl Settings {
     pub fn new() -> Self {
         Config::builder()
-            .add_source(File::with_name("amos/settings/appsettings"))
+            .add_source(File::with_name("settings"))
             .build()
             .unwrap()
             .try_deserialize::<Settings>()
