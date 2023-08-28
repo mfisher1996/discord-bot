@@ -8,6 +8,7 @@ authors = ["Mason Fisher <masonfisherb@gmail.com>"]
 
 [dependencies]
 anyhow = "1.0.70"
+chrono = "0.4.26"
 config = "0.13.3"
 eventlog = "0.2.2"
 log = "0.4.17"

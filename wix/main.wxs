@@ -65,9 +65,9 @@
                                 Description='amos is a discord bot'
                                 DisplayName='Amos'
                                 ErrorControl='normal'
-                                Start='auto'
+                                Start='demand'
                                 Name='amos'
-                                Account='.\LOCAL_ACCOUNT'
+                                Account='LocalSystem'
                                 Arguments = '[APPLICATIONFOLDER]bin'
                                 />
                             <ServiceControl Id='discord_bot' 
@@ -76,8 +76,8 @@
                                 Stop='both'
                                 />
                             <EventSource 
+                                xmlns="http://schemas.microsoft.com/wix/UtilExtension"
                                 Log='Application' 
-                                Id='discord_bot'
                                 Name='amos'
                                 EventMessageFile='$(var.CargoTargetBinDir)\discord_bot.exe'
                                 />
@@ -112,15 +112,8 @@
             <!--<ComponentRef Id='License'/>-->
 
             <ComponentRef Id='binary0'/>
+            <ComponentRef Id='config_file'/>
 
-            <Feature
-                Id='Environment'
-                Title='PATH Environment Variable'
-                Description='Add the install location of the [ProductName] executable to the PATH system environment variable. This allows the [ProductName] executable to be called from any location.'
-                Level='1'
-                Absent='allow'>
-                <ComponentRef Id='Path'/>
-            </Feature>
         </Feature>
 
         <SetProperty Id='ARPINSTALLLOCATION' Value='[APPLICATIONFOLDER]' After='CostFinalize'/>
